@@ -14,6 +14,12 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
     };
+
+    gc  = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
