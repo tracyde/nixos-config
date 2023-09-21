@@ -24,6 +24,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "vhost03"; # Define your hostname.
+  networking.domain = "lab.twistedcode.org";
   networking.hostId = "8806318f"; # `head -c 8 /etc/machine-id`
 
   # List packages installed in system profile. To search, run:
