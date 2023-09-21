@@ -12,6 +12,9 @@
       # Include base machine
       ./modules/base.nix
 
+      # Include system class
+      ./modules/server.nix
+
       # Include common users
       ./users/tracyde.nix
     ];
@@ -26,13 +29,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    linux-firmware
-    neovim
-    tree
-    curl
-    wget
-    ripgrep
-    git
   ];
 
   # List services that you want to enable:
