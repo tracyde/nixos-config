@@ -20,6 +20,18 @@ To use this repository as base configuration for your new machine running:
 
 Modulesque architecture (new to NixOS, so I am learning).  Concept is to capture generic settings at the level of abstraction that makes the most sense.  My homelab is a collection of computing equipment, so I am largely organizing by hardware configuration.
 
+The idea is pretty simple, each machine type (hardware wise) will have a corresponding directory in `machines`.  That directory should also contain a script that will help configure the raw system into one running nixos, this will typically be installed `install.sh` and should do the following:
+
+- Setup any special hardware on the system
+- Partition hard drives
+- Format hard drives
+- Mount filesystems
+- Move configuration repo (this repo) into `/etc/nixos` directory
+- Run nixos-install (also installs bootloader)
+- Un-mount filesystems
+- Export mounts (like ZFS)
+- Reboot
+
 ### Directory Layout
 
 - `hosts`: contains directories containing tailored configurations for all systems
