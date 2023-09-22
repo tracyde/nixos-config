@@ -6,22 +6,18 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [ 
+      ../../machines/nuc8i
 
       # Include base machine
-      ./modules/base.nix
+      ../../modules/base.nix
 
       # Include system class
-      ./modules/server.nix
+      ../../modules/server.nix
 
       # Include common users
-      ./users/tracyde.nix
+      ../../users/tracyde.nix
     ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "vhost03"; # Define your hostname.
   networking.domain = "lab.twistedcode.org";
