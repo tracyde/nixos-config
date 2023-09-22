@@ -14,6 +14,9 @@
 
       # Include system class
       ../../modules/server.nix
+      
+      # Include lxd
+      ../../modules/lxd.nix
 
       # Include common users
       ../../users/tracyde.nix
