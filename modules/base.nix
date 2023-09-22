@@ -22,6 +22,9 @@
     };
   };
 
+  # Enable starship terminal prompt
+  programs.starship.enable = true;
+
   # Automatic system updates
   system.autoUpgrade.enable = true;
 
