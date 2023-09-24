@@ -22,10 +22,27 @@
       ../../users/tracyde.nix
     ];
 
-  networking.hostName = "vhost03"; # Define your hostname.
-  networking.domain = "lab.twistedcode.org";
-  networking.hostId = "8806318f"; # `head -c 8 /etc/machine-id`
-
+  networking = {
+    hostName = "vhost03"; # Define your hostname.
+    domain = "lab.twistedcode.org";
+    hostId = "8806318f"; # `head -c 8 /etc/machine-id`
+    dhcpcd.enable = false;
+    defaultGateway = "10.10.0.1";
+    nameservers = [ "192.168.100.10" ];
+    firewall.enable = false;
+    interfaces.enp0s31f6.ipv4 = {
+      addresses = [{
+        address = "10.10.0.13";
+        prefixLength = 24;
+      }];
+      routes = [{
+        address = "192.168.100.0";
+	prefixLength = 24;
+	via = "10.10.0.1";
+	options = { metric = "0"; };
+      }];
+    };
+  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
