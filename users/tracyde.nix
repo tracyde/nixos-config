@@ -6,7 +6,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tracyde = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "lxd" ]; # Enable ‘sudo’ for the user.
+    description = "Derek Tracy";
+    extraGroups = [ "networkManager" "wheel" "lxd" ];
     packages = with pkgs; [
       colmena
     ];
