@@ -25,6 +25,7 @@
   networking = {
     hostName = "vhost02"; # Define your hostname.
     domain = "lab.twistedcode.org";
+    search = [ "lab.twistedcode.org" ];
     hostId = "f182700a"; # `head -c 8 /etc/machine-id`
     dhcpcd.enable = false;
     defaultGateway = "10.10.0.1";
