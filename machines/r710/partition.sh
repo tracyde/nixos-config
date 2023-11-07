@@ -89,8 +89,8 @@ mkdir -p /mnt/nix
 mount -t zfs rpool/nix /mnt/nix
 
 # CREATE A BOOT PARTITON
-mkfs.fat -F 32 ${DISK1}1
-mkfs.fat -F 32 ${DISK2}1
+mkfs.fat -F 32 -n BOOT ${DISK1}1
+mkfs.fat -F 32 -n FALLBACK ${DISK2}1
 mkdir -p /mnt/boot /mnt/boot-fallback
 mount -t vfat ${DISK1}1 /mnt/boot
 mount -t vfat ${DISK2}1 /mnt/boot-fallback

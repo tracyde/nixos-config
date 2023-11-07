@@ -52,12 +52,12 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7FF8-1DBD";
+    { device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
     };
 
   fileSystems."/boot-fallback" =
-    { device = "/dev/disk/by-uuid/7FF9-5360";
+    { device = "/dev/disk/by-label/FALLBACK";
       fsType = "vfat";
     };
 
