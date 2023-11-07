@@ -22,8 +22,8 @@
   boot.loader.grub.copyKernels = true;
   # Make sure that you've listed all of the boot partitions here.
   boot.loader.grub.mirroredBoots = [
-    { path = "/boot"; devices = ["/dev/disk/by-uuid/7FF8-1DBD"]; }
-    { path = "/boot-fallback"; devices = ["/dev/disk/by-uuid/7FF9-5360"]; }
+    { path = "/boot"; devices = ["/dev/disk/by-label/BOOT"]; }
+    { path = "/boot-fallback"; devices = ["/dev/disk/by-label/FALLBACK"]; }
   ];
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ata_piix" "mpt3sas" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
