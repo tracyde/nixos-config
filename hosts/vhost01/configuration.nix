@@ -46,10 +46,15 @@
     vlans = {
       vlan100 = { id=100; interface="eno2"; };
     };
-    #interfaces.vlan100.ipv4.addresses = [{
-    #  address = "10.10.110.11";
-    #  prefixLength = 24;
-    #}];
+    bridges = {
+      "br-k8s" = {
+        interfaces = [ "vlan100" ];
+      };
+    };
+    interfaces.br-k8s.ipv4.addresses = [{
+      address = "10.10.110.11";
+      prefixLength = 24;
+    }];
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
