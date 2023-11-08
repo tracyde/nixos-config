@@ -43,6 +43,13 @@
 	options = { metric = "0"; };
       }];
     };
+    vlans = {
+      vlan100 = { id=100; interface="eno2"; };
+    };
+    #interfaces.vlan100.ipv4.addresses = [{
+    #  address = "10.10.110.11";
+    #  prefixLength = 24;
+    #}];
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
