@@ -7,7 +7,7 @@
   virtualisation.lxc.lxcfs.enable = true;
 
   # Kernel modules needed to run k8s on LXD
-  boot.kernelModules = [ "ip_tables" "ip6_tables" "nf_nat" "overlay" "br_netfilter" ];
+  boot.kernelModules = [ "ip_tables" "ip6_tables" "nf_nat" "overlay" "br_netfilter" "ip_vs" ];
 
   # Taken from the lxd.recommendedSysctlSettings
   boot.kernel.sysctl = {
