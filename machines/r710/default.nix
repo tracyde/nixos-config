@@ -12,7 +12,7 @@
 
   # Whether installer can modify the EFI variables.
   # If you encounter errors, set this to `false`.
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = false;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
