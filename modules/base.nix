@@ -1,4 +1,4 @@
-{ system, services, ... }:
+{ system, services, pkgs, ... }:
 
 {
   imports = [ ];
@@ -21,6 +21,18 @@
       options = "--delete-older-than 30d";
     };
   };
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    neovim
+    tree
+    tmux
+    curl
+    wget
+    ripgrep
+    git
+  ];
 
   # Enable starship terminal prompt
   programs.starship.enable = true;
