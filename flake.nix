@@ -40,17 +40,15 @@
         imports = [
           ./modules/base.nix
 	  sops-nix.nixosModules.sops
-        ];
-
-	modules = [
 	  home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.testUser = import ./users/testUser.nix;
 	  }
+        ];
 
-	];
-	specialArgs = { inherit inputs; };
+
+	#specialArgs = { inherit inputs; };
 
 	sops.defaultSopsFile = ./secrets/secrets.yaml;
 	sops.defaultSopsFormat = "yaml";
