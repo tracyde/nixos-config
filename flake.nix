@@ -8,13 +8,6 @@
     # Used for system packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
 
-    # Used for user packages and dotfiles
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows =
-        "nixpkgs"; # Use system packages list where available
-    };
-
     # Encrypt sensitive values before uploading to version control
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -25,7 +18,7 @@
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, sops-nix, ... }: {
+  outputs = inputs@{ nixpkgs, sops-nix, ... }: {
 
     # Colmena Section
     colmena = {
@@ -34,17 +27,21 @@
         nixpkgs = import nixpkgs {
           system = "x86_64-linux";
         };
+
+	# Inject the inputs for the top-level flake into a variable so the
+        # nodes can pull them down consistently. I renamed this to flakes
+        # instead of inputs since I always use `inputs` for my parameters
+        # for nested Nix files.
+        #specialArgs.flakes = inputs; = {
+        #  flakes = inputs;
+        #  system = system; # I cannot figure out the "correct" way to do this yet.
+        #};
       };
 
       defaults = { pkgs, ... }: {
         imports = [
           ./modules/base.nix
 	  sops-nix.nixosModules.sops
-	  inputs.home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.testUser = import ./users/testUser.nix;
-	  }
         ];
 
 
