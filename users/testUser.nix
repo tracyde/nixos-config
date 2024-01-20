@@ -1,11 +1,20 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
 
-  home.username = "testUser";
-  home.homeDirectory = "/home/testUser";
   programs.home-manager.enable = true;
-  home.packages = with pkgs; [
-    fish
-  ];
-  home.stateVersion = "23.11";
+
+  users.users.testUser.isNormalUser = true;
+
+  home-manager.users.testUser = { ... }: {
+
+    home.username = "testUser";
+    home.homeDirectory = "/home/testUser";
+
+    home.packages = with pkgs; [
+      fish
+    ];
+    home.stateVersion = "23.05";
+
+  };
+
 
 }
