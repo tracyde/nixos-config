@@ -6,7 +6,7 @@
   inputs = {
 
     # Used for system packages
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     # Encrypt sensitive values before uploading to version control
     sops-nix = {
