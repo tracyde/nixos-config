@@ -64,7 +64,7 @@
 	sops.age.keyFile = "/home/tracyde/.config/sops/age/keys.txt";
       };
 
-      bastion = { name, nodes, ... }: {
+      bastion = { name, nodes, inputs, ... }: {
         networking.hostName = "bastion";
         networking.domain = "nexus.twistedcode.org";
         networking.hostId = "2e49df46"; # `head -c 8 /etc/machine-id`
