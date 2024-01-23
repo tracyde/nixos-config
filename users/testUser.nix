@@ -1,7 +1,8 @@
-{pkgs, inputs, ...}: 
+{users, pkgs, inputs, ...}: 
 
 {
 
+  users.users.testUser.isNormalUser = true;
   inputs.home-manager.users.testUser = { pkgs, ... }: {
     home.username = "testUser";
     home.homeDirectory = "/home/testUser";
