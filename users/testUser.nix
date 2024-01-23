@@ -2,7 +2,7 @@
 
 {
 
-  home-manager.users.testUser = { pkgs, ... }: {
+  inputs.home-manager.users.testUser = { pkgs, ... }: {
     home.username = "testUser";
     home.homeDirectory = "/home/testUser";
     programs.home-manager.enable = true;
