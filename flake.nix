@@ -8,6 +8,12 @@
     # Used for system packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
+    # Add the home-manager nixosModule
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Encrypt sensitive values before uploading to version control
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -18,7 +24,7 @@
 
   };
 
-  outputs = inputs@{ nixpkgs, sops-nix, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, sops-nix, ... }: {
 
     # Colmena Section
     colmena = {
@@ -36,9 +42,10 @@
         #  flakes = inputs;
         #  system = system; # I cannot figure out the "correct" way to do this yet.
         #};
+	specialArgs.inputs = inputs;
       };
 
-      defaults = { pkgs, ... }: {
+      defaults = { pkgs, inputs, ... }: {
         imports = [
           ./modules/base.nix
 	  sops-nix.nixosModules.sops
@@ -46,6 +53,10 @@
 
 
 	#specialArgs = { inherit inputs; };
+	#inputs.home-manager.nixosModules.home-manager {
+	#  home-manager.useGlobalPkgs = true;
+	#  home-manager.useUserPackages = true;
+	#}
 
 	sops.defaultSopsFile = ./secrets/secrets.yaml;
 	sops.defaultSopsFormat = "yaml";
@@ -67,6 +78,7 @@
           
           # Include common users
           ./users/tracyde.nix
+	  ./users/testUser.nix
 
           # Profiles
           ./modules/desktop.nix
