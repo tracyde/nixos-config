@@ -1,7 +1,9 @@
 keys:
-  - &primary age155dr25ra8ua24lkhukladpyr8p4z958rnudtg86vwlrf8mvhuelqu66jws
+  - &sops age128rk6vdrcw43gsslsnkw80p6y9dlllrk4fuh6z2ftqawgk7phg5qdujfuq
+  - &vhost03 age1kn4hf6xdyg3ect8w7rsqzuymay0ycguyh5f0cx96u6hz8nptvq6spffmxz
 creation_rules:
-  - path_regex: secrets/secrets.yaml$
+  - path_regex: secrets/[^/]+(\.(yaml|json|env|ini|conf))?$
     key_groups:
-    - age:
-      - *primary
+      - age:
+          - *sops
+          - *vhost03
