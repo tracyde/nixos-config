@@ -32,6 +32,8 @@
     };
   };
 
+  virtualisation.libvirtd.enable = true;
+
   # Network configuration
   networking = {
     hostId = "c267b675";
