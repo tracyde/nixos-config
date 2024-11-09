@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
 
     ./../../modules/nixos/base.nix
+    ./../../modules/zfs/base.nix
     #./../../modules/nixos/remote-unlock.nix
     #./../../modules/nixos/auto-update.nix
 
