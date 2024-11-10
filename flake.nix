@@ -36,6 +36,10 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./machines/vhost03/configuration.nix];
       };
+      nyx = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./machines/nyx/configuration.nix];
+      };
     };
   };
 }
