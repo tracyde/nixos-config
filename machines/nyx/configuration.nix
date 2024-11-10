@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
 
     ./../../modules/nixos/base.nix
-    ./../../modules/zfs/base.nix
+    ./../../modules/nixos/desktop.nix
     #./../../modules/nixos/remote-unlock.nix
     #./../../modules/nixos/auto-update.nix
 
@@ -36,7 +36,7 @@
 
   # Network configuration
   networking = {
-    hostId = "c267b675";
+    hostId = "a6c42a1b";
     hostName = "nyx";
     domain = "nexus.twistedcode.org";
   };
