@@ -5,5 +5,7 @@
     gptfdisk
     parted
     htop
+    curl
+    wget
   ];
 }
