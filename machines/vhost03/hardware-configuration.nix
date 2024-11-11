@@ -15,7 +15,7 @@
       # `readlink /sys/class/net/enp0s31f6/device/driver` indicates "e1000e" is the ethernet driver for this device
       availableKernelModules = ["nvme" "xhci_pci" "ehci_pci" "ahci" "mpt3sas" "usbhid" "usb_storage" "sd_mod" "ixgbe"];
     };
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [ "kvm-intel" "sch_netem" "sch_ingress" ];
   };
 
   fileSystems = {
