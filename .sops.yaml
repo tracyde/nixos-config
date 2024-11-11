@@ -1,9 +1,11 @@
 keys:
   - &sops age128rk6vdrcw43gsslsnkw80p6y9dlllrk4fuh6z2ftqawgk7phg5qdujfuq
   - &vhost03 age1kn4hf6xdyg3ect8w7rsqzuymay0ycguyh5f0cx96u6hz8nptvq6spffmxz
+  - &nyx age1m47tk62a9tkzwrftjwdd2r4gk9p7lyqarpyn097ez5hw4v6d3cus6dlsvu
 creation_rules:
   - path_regex: secrets/[^/]+(\.(yaml|json|env|ini|conf))?$
     key_groups:
       - age:
           - *sops
           - *vhost03
+          - *nyx
