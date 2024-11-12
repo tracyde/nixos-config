@@ -34,6 +34,7 @@
 
   virtualisation.libvirtd.enable = true;
   virtualisation.libvirtd.allowedBridges = [ "br-mgmt" ];
+  environment.systemPackages = with pkgs; [ "virt-manager" ];
 
   # Network configuration
   networking.useDHCP = false;
