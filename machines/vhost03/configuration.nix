@@ -33,12 +33,17 @@
   };
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.allowedBridges = [ "br-mgmt" ];
 
   # Network configuration
+  networking.useDHCP = false;
+
   networking = {
     hostId = "c267b675";
     hostName = "vhost03";
     domain = "lab.twistedcode.org";
+    defaultGateway = "10.10.0.1";
+    nameservers = [ "192.168.100.10" ];
 
     vlans = {
       vlan10 = { id=10; interface="eno4"; };
@@ -48,8 +53,12 @@
       address = "10.10.0.13";
       prefixLength = 24;
     }];
-    defaultGateway = "10.10.0.1";
-    nameservers = [ "192.168.100.10" ];
+
+    bridges = {
+      br-mgmt = {
+        interfaces = [ "vlan10" ];
+      };
+    };
 
     hosts = {
       "10.10.0.13" = [ "vhost03" "vhost03.lab.twistedcode.org" ];
