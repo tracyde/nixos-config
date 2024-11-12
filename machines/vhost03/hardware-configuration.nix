@@ -16,6 +16,7 @@
       availableKernelModules = ["nvme" "xhci_pci" "ehci_pci" "ahci" "mpt3sas" "usbhid" "usb_storage" "sd_mod" "ixgbe"];
     };
     kernelModules = [ "kvm-intel" "sch_netem" "sch_ingress" ];
+    kernelParams = [ "intel_iommu=on" ];
   };
 
   fileSystems = {
