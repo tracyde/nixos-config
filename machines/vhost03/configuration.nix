@@ -49,16 +49,17 @@
       vlan10 = { id=10; interface="eno4"; };
     };
 
-    interfaces.vlan10.ipv4.addresses = [{
-      address = "10.10.0.13";
-      prefixLength = 24;
-    }];
-
     bridges = {
       br-mgmt = {
         interfaces = [ "vlan10" ];
       };
     };
+
+    interfaces.br-mgmt.ipv4.addresses = [{
+      address = "10.10.0.13";
+      prefixLength = 24;
+    }];
+
 
     hosts = {
       "10.10.0.13" = [ "vhost03" "vhost03.lab.twistedcode.org" ];
