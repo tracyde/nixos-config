@@ -63,6 +63,7 @@
     tmux
     sddm-kcm
     firefox
+    virt-manager
   ];
 
   fonts.packages = with pkgs; [
